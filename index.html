@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>? ? ?</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Gurajada&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    background:#000;
+    color:#fff;
+    overflow:hidden;
+    cursor:default;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:"Gurajada", serif;
+}
+
+h1{
+    font-size:clamp(6rem,15vw,14rem);
+    font-weight:400;
+    letter-spacing:.08em;
+    user-select:none;
+    text-align:center;
+}
+
+#overlay{
+    position:fixed;
+    inset:0;
+    background:#000;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:"Gurajada", serif;
+    font-size:2rem;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>? ? ?</h1>
+
+<div id="overlay">Click anywhere to begin.</div>
+
+<audio id="music" loop>
+    <source src="https://file.garden/Z1aPbkMwr2PDUpO7/innards.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("music");
+const overlay = document.getElementById("overlay");
+
+music.volume = 1;
+
+music.play().then(() => {
+    overlay.style.display = "none";
+}).catch(() => {
+    overlay.style.display = "flex";
+});
+
+overlay.addEventListener("click", () => {
+    music.play();
+    overlay.style.display = "none";
+});
+</script>
+
+</body>
+</html>
